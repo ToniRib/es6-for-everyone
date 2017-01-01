@@ -35,16 +35,13 @@
   const listItems = Array.from(document.getElementsByTagName('li'));
 
   // Filter for only the elements that contain the word 'flexbox'
-  const flexbox = listItems.filter(item => item.textContent.includes('Flexbox'));
-
-  // map down to a list of time strings
-  const times = flexbox.map(box => box.dataset.time);
-
-  // map to an array of seconds
-  const seconds = times.map(time => parseFloat(time.substr(time.length - 2)));
-
-  // reduce to get total
-  const total = seconds.reduce((partialTotal, seconds) => partialTotal + seconds);
+  const total = listItems.filter(item => item.textContent.includes('Flexbox'))
+                         .map((box) => {
+                           let time = box.dataset.time;
+                           let [ minutes, seconds ] = time.split(':').map(part => parseFloat(part));
+                           return (minutes * 60) + seconds;
+                          })
+                         .reduce((partialTotal, seconds) => partialTotal + seconds);
   console.log(`The total number of seconds is: ${total}`);
 
   // This can also be done in a single .reduce(), but we're practicing arrow functions here, so chain them!
