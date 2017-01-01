@@ -1,5 +1,5 @@
-![ES6 for Everyone](https://es6.io/images/es6-facebook-share.png?cool=yah)
-
-# ES6 for Everyone Starter Files
+# ES6 for Everyone Starter Files + Exercises
 
 Everything you need to Learn ES6 over at [ES6.io](https://ES6.io)
+
+Updated as I go through the various exercises!
